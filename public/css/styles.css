@@ -1,0 +1,145 @@
+body {
+  color: #333333;
+  font-family: Arial;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  color: #888888;
+  border-top: 1px solid black;
+  padding: 16px 0;
+  margin-top: 12px;
+}
+header {
+  margin-top: 12px;
+  margin-bottom: 36px;
+}
+h1 {
+  font-size: 64px;
+  margin-bottom: 12px;
+}
+header a {
+  color: #888888;
+  margin-right: 16px;
+  text-decoration: none;
+}
+header a:hover {
+  color: black;
+}
+.portrait {
+  width: 250px;
+}
+.social-img {
+  width: 50px;
+  padding-bottom: 16px;
+  cursor: pointer;
+}
+.social-container {
+  display: block;
+  width: 50px;
+  margin: 0 0;
+}
+.form-input {
+  width: 600px;
+  height: fit-content;
+  margin-bottom: 16px;
+}
+.feedback-container {
+  margin: 0 100px;
+  padding: 0px 16px;
+  display: block;
+  width: 600px;
+}
+#feedback {
+  height: 200px;
+}
+.main-content {
+  flex-grow: 1;
+}
+.contact-conatainer {
+  display: flex;
+}
+
+#trend-container {
+  flex-direction: column;
+}
+.trend {
+  display: inline-block;
+  padding: 16px;
+  margin: 1px;
+  width: 200px;
+  height: auto;
+  vertical-align: top;
+  color: black;
+  border-radius: 5px;
+}
+input {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+textarea {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+button {
+  cursor: pointer;
+  border: #888888 1px solid;
+  background: #888888;
+  color: white;
+  padding: 8px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip-img {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: #bcbcbc;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 5;
+}
+.tooltip-img .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: #bcbcbc;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 5;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.tooltip-img:hover .tooltiptext {
+  visibility: visible;
+}
+.introduction-container {
+  padding-top: 12px;
+  text-align: center;
+}
+
+#container {
+  padding: 12px 12px;
+  text-align: center;
+  border: #888888 solid 1px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #888888;
+  max-width: 70%;
+  margin: 10px auto;
+}

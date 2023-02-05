@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <div class="main-content">
+      {{>header}}
+      <div class="contact-conatainer">
+      <div class="social-container">
+        <div class="tooltip-img"><a href="https://github.com/KWeid40" target="_blank"><img class="social-img" src="./img/github.png" /></a><div class="tooltiptext">
+          My github repo
+        </div></div>
+        <div class="tooltip-img"><a href="https://www.linkedin.com/in/kyle-weidenmann-387804206/" target="_blank"><img class="social-img" src="./img/linkedin.png" /></a><div class="tooltiptext">
+          My Linkedin account
+        </div></div>
+        <div class="tooltip-img"><a href="mailto:kweidenmann40@gmail.com" target="_blank"><img class="social-img" src="./img/mail.png" /></a><div class="tooltiptext">
+          My email address
+        </div></div>
+        <div class="tooltip-img"><a href="https://docs.google.com/document/d/1OehXJM4XiL6A6ITxKL_VOyg7wsr2VADk/edit?usp=sharing&ouid=114599324692369293928&rtpof=true&sd=true" target="_blank"><img class="social-img" src="./img/google-drive.png" /></a><div class="tooltiptext">
+          My CV document
+        </div></div>
+        
+        
+        
+        
+      </div>
+      <div class="feedback-container">
+        <form class="feedback-form">
+          <label>Your email:</label>
+        <input class="form-input" id='email'placeholder="Email">
+        <label class="error-recipient"></label><br>
+        <label>Your feedback:</label>
+        <textarea class="form-input" id="feedback" placeholder=""></textarea>
+        <label class="error-body"></label><br>
+        <button>Submit Feedback</button></form>
+      </div>
+      </div>
+    </div>
+    
+    {{>footer}}
+   <script src="./js/app-contact.js"></script>
+  </body>
+</html>
