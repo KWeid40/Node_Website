@@ -1,7 +1,6 @@
 const googleTrends = require("google-trends-api");
 
 const trends = (location, callback) => {
-  console.log(location.toUpperCase());
   googleTrends
     .dailyTrends({ geo: location.toUpperCase() })
     .then(function (results) {
@@ -20,7 +19,6 @@ const trends = (location, callback) => {
       callback(undefined, resultArr);
     })
     .catch(function (err) {
-      //console.error("Oh no there was an error", err);
       callback("Oh no there was an error", undefined);
     });
 };

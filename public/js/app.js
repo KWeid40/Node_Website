@@ -11,7 +11,6 @@ trendForm[0].addEventListener("submit", (e) => {
   trend_container.innerHTML = "";
 
   const trendURL = "http://localhost:3000/trends?location=" + location;
-  console.log(trendURL);
   fetch(trendURL)
     .then((response) => {
       response.json().then((data) => {
@@ -20,15 +19,13 @@ trendForm[0].addEventListener("submit", (e) => {
           const trend = document.createElement("div");
           trend.innerHTML = data.error;
           trend_container.appendChild(trend);
-          console.log(error);
         } else {
           data.forEach((e) => {
-            console.log(e);
             const trend = document.createElement("div");
             trend.innerHTML = `${e.trend} has ${e.traffic} searches today.`;
             trend.className = "trend";
             trend.style.background =
-              colors[Math.floor(Math.random() * colors.length)];
+            colors[Math.floor(Math.random() * colors.length)];
             trend_container.appendChild(trend);
           });
         }

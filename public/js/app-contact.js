@@ -41,9 +41,7 @@ feedbackForm[0].addEventListener("submit", (e) => {
 
         fetch(
           `http://localhost:3000/sendmail?recipient=kweidenmann40@gmail.com&body=${body} from ${recipient}`
-        ).then((response) => {
-          console.log(response);
-        });
+        ).then((response) => {});
       } else {
         recipient_error[0].innerHTML = "Please add valid email address";
         recipient_error[0].style.color = "red";

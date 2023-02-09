@@ -78,29 +78,6 @@ async function authorize() {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-async function listLabels(auth) {
-  const gmail = google.gmail({ version: "v1", auth });
-  console.log(
-    await gmail.messages.send({
-      to: "kweidenmann40@gmail.com",
-      from: "kweidenmann40@gmail.com",
-      subject: "test mail",
-      text: "test body",
-    })
-  );
-  const res = await gmail.users.labels.list({
-    userId: "me",
-  });
-  const labels = res.data.labels;
-  if (!labels || labels.length === 0) {
-    console.log("No labels found.");
-    return;
-  }
-  console.log("Labels:");
-  labels.forEach((label) => {
-    //console.log(`- ${label.name}`);
-  });
-}
 
 function makeBody(to, from, subject, message) {
   var str = [
@@ -127,7 +104,7 @@ function makeBody(to, from, subject, message) {
 }
 
 async function sendmail(to, body, auth, callback) {
-  var raw = makeBody(to, "kweidenmann40@gmail.com", "test api", body);
+  var raw = makeBody(to, "kweidenmann40@gmail.com", "Feedback Respnse", body);
   const gmail = google.gmail({ version: "v1", auth });
   gmail.users.messages.send(
     {
@@ -136,7 +113,6 @@ async function sendmail(to, body, auth, callback) {
       resource: { raw: raw },
     },
     function (err, response) {
-      console.log(err || response);
       if (err) {
         callback("Oh no the mail was not sent", undefined);
       } else {

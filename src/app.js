@@ -43,7 +43,6 @@ app.get("/search", (req, res) => {
 
 //http://localhost:3000/products?location=ZA
 app.get("/trends", (req, res) => {
-  console.log(req.query.location);
   if (!req.query.location) {
     return res.send({
       error: "Please provide a location",
@@ -56,7 +55,6 @@ app.get("/trends", (req, res) => {
     }
     res.send(trendsArr);
   });
-  //res.send({ trends: [] });
 });
 app.get("/sendmail", (req, res) => {
   if (!req.query.recipient || !req.query.body) {
