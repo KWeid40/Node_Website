@@ -5,6 +5,7 @@ const trends = require("./utils/trends");
 const sendmail = require("./utils/sendMail");
 
 const app = express();
+const port = process.env.PORT || 80;
 
 //Define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -87,6 +88,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("server up");
+app.listen(port, () => {
+  console.log("server up on: "+ port);
 });
