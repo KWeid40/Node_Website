@@ -40,7 +40,7 @@ feedbackForm[0].addEventListener("submit", (e) => {
           });
 
         fetch(
-          `http://localhost:3000/sendmail?recipient=kweidenmann40@gmail.com&body=${body} from ${recipient}`
+          `/sendmail?recipient=kweidenmann40@gmail.com&body=${body} from ${recipient}`
         ).then((response) => {});
       } else {
         recipient_error[0].innerHTML = "Please add valid email address";
@@ -52,7 +52,7 @@ feedbackForm[0].addEventListener("submit", (e) => {
 
   /* */
 });
-//http://localhost:3000/sendmail?recipient=kweidenmann40@gmail.com&body=testmail
+///sendmail?recipient=kweidenmann40@gmail.com&body=testmail
 function validateEmail(email) {
   var re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
