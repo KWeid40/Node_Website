@@ -10,7 +10,7 @@ trendForm[0].addEventListener("submit", (e) => {
   const location = trendLocationInput.value;
   trend_container.innerHTML = "";
 
-  const trendURL = "http://localhost:3000/trends?location=" + location;
+  const trendURL = "/trends?location=" + location;
   fetch(trendURL)
     .then((response) => {
       response.json().then((data) => {
