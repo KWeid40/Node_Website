@@ -14,7 +14,7 @@ var SCOPES = [
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = path.join(process.cwd(), "./src/utils/token.json");
+const TOKEN_PATH = path.join(process.cwd(), "./Node_Website/src/utils/token.json");
 const CREDENTIALS_PATH = path.join(
   process.cwd(),
   "./src/utils/credentials.json"
