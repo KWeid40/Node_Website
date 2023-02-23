@@ -17,7 +17,7 @@ feedbackForm[0].addEventListener("submit", (e) => {
   body_error[0].innerHTML = "";
 
   if (!recipient) {
-    console.log(recipient_error[0]);
+    //console.log(recipient_error[0]);
     recipient_error[0].innerHTML = "Please enter an email address";
     recipient_error[0].style.color = "red";
   } else {
@@ -30,17 +30,25 @@ feedbackForm[0].addEventListener("submit", (e) => {
       if (validateEmail(recipient)) {
         console.log("Email valid");
         fetch(
-          `http://localhost:3000/sendmail?recipient=${recipient}&body=${bodytemp} Your message: "${body}"`
+          `/sendmail?recipient=${recipient}&subject=Contact form submittion&body=${bodytemp} Your message: "${body}"`
         )
           .then((response) => {
-            console.log(response);
+            //console.log(response);
+            if (response) {
+              body_error[0].innerHTML = "Email has been sent";
+              body_error[0].style.color = "green";
+            }
           })
           .catch((err) => {
-            console.log(err);
+            if (err) {
+              body_error[0].innerHTML =
+                "Oops something went wrong Please try contacting me on other chanels";
+              body_error[0].style.color = "red";
+            }
           });
 
         fetch(
-          `/sendmail?recipient=kweidenmann40@gmail.com&body=${body} from ${recipient}`
+          `/sendmail?recipient=kweidenmann40@gmail.com&subject=Contact form submittion from ${recipient}&body=${body} from ${recipient}`
         ).then((response) => {});
       } else {
         recipient_error[0].innerHTML = "Please add valid email address";

@@ -42,7 +42,6 @@ app.get("/search", (req, res) => {
   });
 });
 
-//http://localhost:3000/products?location=ZA
 app.get("/trends", (req, res) => {
   if (!req.query.location) {
     return res.send({
@@ -63,21 +62,19 @@ app.get("/sendmail", (req, res) => {
       error: "Oops something went wrong please try again.",
     });
   }
+
   sendmail
-    .authorize()
-    .then(function (results) {
-      sendmail.sendmail(
-        req.query.recipient,
-        req.query.body,
-        results,
-        (error, success) => {
-          if (error) {
-            return res.send({ error: error });
-          }
-          res.send(success);
+    .sendMail(
+      req.query.recipient,
+      req.query.body,
+      req.query.subject,
+      (error, success) => {
+        if (error) {
+          return res.send({ error: error });
         }
-      );
-    })
+        res.send(success);
+      }
+    )
     .catch();
 });
 
@@ -89,5 +86,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("server up on: "+ port);
+  console.log("server up on: " + port);
 });
