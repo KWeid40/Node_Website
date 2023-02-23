@@ -14,7 +14,10 @@ var SCOPES = [
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = path.join(process.cwd(), "./Node_Website/src/utils/token.json");
+const TOKEN_PATH = path.join(
+  process.cwd(),
+  "./Node_Website/src/utils/token.json"
+);
 const CREDENTIALS_PATH = path.join(
   process.cwd(),
   "./src/utils/credentials.json"
@@ -80,7 +83,24 @@ async function authorize() {
  */
 
 function makeBody(to, from, subject, message) {
-  var str = [
+  const encodedSubject = Buffer.from(subject).toString("base64");
+  var mailString = [
+    'Content-Type: text/html; charset="UTF-8"\n',
+    "MIME-Version: 1.0\n",
+    "Content-Transfer-Encoding: 7bit\n",
+    "bcc: ",
+    to,
+    "\n",
+    "from: ",
+    from,
+    "\n",
+    `Subject: =?UTF-8?B?${encodedSubject}?=\n\n`, // Working with Unicode characters
+    message,
+  ].join("");
+  var encodedMail = Buffer.from(mailString).toString("base64");
+  return encodedMail;
+
+  /*var str = [
     'Content-Type: text/plain; charset="UTF-8"\n',
     "MIME-Version: 1.0\n",
     "Content-Transfer-Encoding: bas64\n",
@@ -100,7 +120,7 @@ function makeBody(to, from, subject, message) {
     .toString("base64")
     .replace(/\+/g, "-")
     .replace(/\//g, "_");
-  return encodedMail;
+  return encodedMail;*/
 }
 
 async function sendmail(to, body, auth, callback) {
