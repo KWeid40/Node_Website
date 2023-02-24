@@ -62,12 +62,15 @@ app.get("/sendmail", (req, res) => {
       error: "Oops something went wrong please try again.",
     });
   }
+  function replaceSpaces(str) {
+    return str.replace(/%20/g, " ");
+  }
 
   sendmail
     .sendMail(
       req.query.recipient,
-      req.query.body,
-      req.query.subject,
+      replaceSpaces(req.query.body),
+      replaceSpaces(req.query.subject),
       (error, success) => {
         if (error) {
           return res.send({ error: error });
