@@ -1,5 +1,5 @@
 const googleTrends = require("google-trends-api");
-const countries = require("./data/countries.json");
+import * as countries from("./data/countries.json");
 
 const getCountries = async (callback) => {
   if (countries) {
