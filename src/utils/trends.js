@@ -1,16 +1,23 @@
 const googleTrends = require("google-trends-api");
+const countries = require("./data/countries.json");
 
-const trends = (location, callback) => {
+const getCountries = async (callback) => {
+  if (countries) {
+    callback(undefined, countries);
+  } else {
+    callback("oops", undefined);
+  }
+};
+
+const trends = async (location, callback) => {
   googleTrends
     .dailyTrends({ geo: location.toUpperCase() })
     .then(function (results) {
-      //console.log('These results are awesome', JSON.parse(results).default.trendingSearchesDays[0].trendingSearches );
-
       var searchesArr =
         JSON.parse(results).default.trendingSearchesDays[0].trendingSearches;
       var resultArr = [];
+
       searchesArr.forEach((element) => {
-        //console.log(element);
         resultArr.push({
           trend: element.title.query,
           traffic: element.formattedTraffic,
@@ -23,4 +30,4 @@ const trends = (location, callback) => {
     });
 };
 
-module.exports = trends;
+module.exports = { method: trends, otherMethod: getCountries };

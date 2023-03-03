@@ -30,7 +30,7 @@ feedbackForm[0].addEventListener("submit", (e) => {
       if (validateEmail(recipient)) {
         console.log("Email valid");
         fetch(
-          `/sendmail?recipient=${recipient}&subject=Contact form submittion&body=${bodytemp} Your message: "${body}"`
+          `/sendmail?recipient=${recipient}&subject=Contact form submission&body=${bodytemp} Your message: "${body}"`
         )
           .then((response) => {
             //console.log(response);
@@ -48,7 +48,7 @@ feedbackForm[0].addEventListener("submit", (e) => {
           });
 
         fetch(
-          `/sendmail?recipient=kweidenmann40@gmail.com&subject=Contact form submittion from ${recipient}&body=${body} from ${recipient}`
+          `/sendmail?recipient=kweidenmann40@gmail.com&subject=Contact form submission from ${recipient}&body=${body} from ${recipient}`
         ).then((response) => {});
       } else {
         recipient_error[0].innerHTML = "Please add valid email address";

@@ -4,21 +4,22 @@
     
   </head>
 
-  <body>
+  <body id="trend_body">
     <div class="main-content">{{>header}}
     <p>
-      The daily trends on google
+      The daily trends on google. 
     </p>
     <div>
 
       <form class="trend-form">
-        <input placeholder="Country code e.g ZA">
+        <label >Select a country the click the button.</label></br>
+        <select  id="countries">{{countries}}</select>
         <button>Show Trends</button>
       </form>
       <div id="trend-container"></div>
     </div>
     </div>
     {{>footer}}
-    <script src="./js/app.js"></script>
-  </body>
+    
+  </body><script src="./js/app.js"></script>
 </html>

@@ -1,9 +1,10 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-const trends = require("./utils/trends");
+const trendModule = require("./utils/trends");
+const trends = trendModule.method;
+const countries = trendModule.otherMethod;
 const sendmail = require("./utils/sendMail");
-
 const app = express();
 const port = process.env.PORT || 80;
 
@@ -39,6 +40,17 @@ app.get("/search", (req, res) => {
     title: "Trends",
     owner: "Kyle Weidenmann",
     geo: req.query.area,
+  });
+});
+
+app.get("/countries", (req, res) => {
+  countries((err, countriesArr) => {
+    if (err) {
+      return res.send({
+        error: "oopx",
+      });
+    }
+    res.send(countriesArr);
   });
 });
 
