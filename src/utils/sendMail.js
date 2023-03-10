@@ -4,12 +4,12 @@ async function sendMail(to, body, subject, callback) {
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "kweidenmann40@gmail.com",
-      pass: "fwhqjtpdejeioqfg",
+      user: "@gmail.com",
+      pass: "APP Spesific password",
     },
   });
   var mailOptions = {
-    from: "kweidenmann40@gmail.com",
+    from: "@gmail.com",
     to: to,
     subject: subject,
     text: body,
